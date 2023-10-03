@@ -1,12 +1,14 @@
 // import React from 'react'
-import PlusIcon from '../../../public/icon/plus-icon' //tentar importar de forma destruturada 
+import PlusIcon from '/public/icon/plus-icon.jsx' //importando como um componente 
 import styles from './header.module.css'
+// import { Plus } from '@phosphor-icons/react' //importando da lib de forma desestruturada
 
 const Header = () => {
     return (
         <header className={styles.header}>
             <h1 className={styles.logo}>
                 <p className={styles.titulo}>Finanças</p>
+                {/* <Plus color='#457b9d' weight='bold' size={35} /> */}
                 <PlusIcon fill='#457B9D' width={45} />
             </h1>
             <nav>
