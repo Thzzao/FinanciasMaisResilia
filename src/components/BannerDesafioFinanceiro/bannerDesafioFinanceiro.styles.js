@@ -1,4 +1,6 @@
-.container {
+import styled from "styled-components"
+
+export const StylesBannerDesafioFinanceiro = styled.div`
     display: flex;
     /* width: 1184.07px; */
     width: 100%;
@@ -6,7 +8,6 @@
     justify-content: space-between;
     align-items: flex-start;
     background: #E9F0F0;
-}
 
 .texto {
     display: flex;
@@ -48,3 +49,4 @@
     width: 500px;
     height: 500px;
 }
+`

@@ -1,6 +1,7 @@
-.container {
+import styled from "styled-components"
+
+export const StylesBannerBemVindo = styled.div`
     display: flex;
-    /* width: 1184.07px; */
     width: 100%;
     padding: 0px 100px;
     justify-content: space-between;
@@ -8,8 +9,6 @@
     background-image: url("public/background-Section-1.svg");
     background-position: bottom;
     background-repeat: no-repeat;
-}
-
 
 .texto {
     display: flex;
@@ -52,3 +51,4 @@
     height: 500px;
     flex-shrink: 0;
 }
+`

@@ -1,10 +1,11 @@
-.header {
+import styled from "styled-components";
+
+export const StylesHeader = styled.header`
     display: flex;
     width: 1212px;
     padding: 12px 0px;
     justify-content: space-between;
     align-items: center;
-}
 
 .logo {
     display: flex;
@@ -39,3 +40,5 @@
     font-weight: 400;
     line-height: normal;
 }
+`
+
