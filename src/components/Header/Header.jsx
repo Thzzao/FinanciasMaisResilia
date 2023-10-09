@@ -2,10 +2,17 @@
 import PlusIcon from '/public/icon/plus-icon.jsx' //importando como um componente 
 // import styles from './header.module.css'
 import { StylesHeader } from './header.styles'
+import Button from '../common/Button/Button'
+import { Link, useNavigate } from 'react-router-dom'
 // import { Plus } from '@phosphor-icons/react' //importando da lib de forma desestruturada
 
 
 const Header = () => {
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate('/cadastro')
+    }
+
     return (
         <StylesHeader className={'header'}>
             <h1 className={'logo'}>
@@ -15,10 +22,10 @@ const Header = () => {
             </h1>
             <nav>
                 <ul className={'lista'}>
-                    <li><a className={'link'} href=''>Home</a></li>
-                    <li><a className={'link'} href=''>Quem somos</a></li>
-                    <li><a className={'link'} href=''>Entrar</a></li>
-                    <li><button>Criar Conta</button></li>
+                    <li><Link className={'link'} to='/'>Home</Link></li>
+                    <li><Link className={'link'} to=''>Quem somos</Link></li>
+                    <li><Link className={'link'} to='/login'>Entrar</Link></li>
+                    <li><Button texto='Criar Conta' variant='primary' onClick={() => navigate(handleClick)} /></li>
                 </ul>
             </nav>
         </StylesHeader>
