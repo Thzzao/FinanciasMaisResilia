@@ -25,7 +25,7 @@ const Header = () => {
                     <li><Link className={'link'} to='/'>Home</Link></li>
                     <li><Link className={'link'} to=''>Quem somos</Link></li>
                     <li><Link className={'link'} to='/login'>Entrar</Link></li>
-                    <li><Button texto='Criar Conta' variant='primary' onClick={() => navigate(handleClick)} /></li>
+                    <li><Button texto='Criar Conta' variant='primary' onClick={handleClick} /></li>
                 </ul>
             </nav>
         </StylesHeader>
