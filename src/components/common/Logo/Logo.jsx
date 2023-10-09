@@ -4,8 +4,8 @@ import { StylesLogo, LightLogo } from './logo.styles'
 const Logo = ({ variant }) => {
     return (
         <>
-            {variant == 'primary' && <StylesLogo />}
-            {variant == 'secundary' && <LightLogo />}
+            {variant == 'Default' && <StylesLogo />}
+            {variant == 'Light' && <LightLogo />}
         </>
     )
 }
