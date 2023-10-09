@@ -15,7 +15,7 @@ export const StylesHeader = styled.header`
 }
 
 .titulo {
-    color: #457B9D;
+    color:${(props) => props.theme.blue500};
     font-family: Montserrat;
     font-size: 32px;
     font-style: normal;
@@ -32,7 +32,7 @@ export const StylesHeader = styled.header`
 }
 
 .link {
-    color: #457B9D;
+    color:${(props) => props.theme.blue500};
     font-family: Montserrat;
     text-decoration: none;
     font-size: 24px;
@@ -41,4 +41,3 @@ export const StylesHeader = styled.header`
     line-height: normal;
 }
 `
-
