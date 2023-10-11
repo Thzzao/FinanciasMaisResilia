@@ -1,4 +1,3 @@
-// import React from 'react'
 import { StylesBannerBemVindo } from './bannerBemVindo.styles'
 import banner1 from '/LP-banner1 1.svg'
 
