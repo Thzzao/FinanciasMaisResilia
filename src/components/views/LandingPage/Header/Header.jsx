@@ -2,7 +2,7 @@
 import PlusIcon from '/public/icon/plus-icon.jsx' //importando como um componente 
 // import styles from './header.module.css'
 import { StylesHeader } from './header.styles'
-import Button from '../common/Button/Button'
+import Button from '../../../common/Button/Button'
 import { Link, useNavigate } from 'react-router-dom'
 // import { Plus } from '@phosphor-icons/react' //importando da lib de forma desestruturada
 
