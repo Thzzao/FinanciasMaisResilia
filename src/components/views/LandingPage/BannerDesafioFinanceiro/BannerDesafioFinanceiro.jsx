@@ -1,6 +1,4 @@
-// import React from 'react'
 import banner2 from '/LP-banner2 3.svg'
-// import styles from '../BannerDesafioFinanceiro/BannerDesafioFinanceiro.module.css'
 import { StylesBannerDesafioFinanceiro } from './bannerDesafioFinanceiro.styles'
 
 const BannerDesafioFinanceiro = () => {
