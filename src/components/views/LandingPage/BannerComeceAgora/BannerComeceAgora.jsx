@@ -1,5 +1,5 @@
-import Button from "../../../common/Button/Button";
 import { StyleContainer } from "./BannerComeceAgora.styles";
+import Button from "../../../common/Button/Button";
 import Input from "../../../common/Input/Input";
 
 const BannerComeceAgora = () => {

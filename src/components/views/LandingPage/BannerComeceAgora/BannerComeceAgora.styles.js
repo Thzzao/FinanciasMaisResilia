@@ -29,4 +29,4 @@ export const StyleContainer = styled.section`
         flex: 1 0 0;
         }
     }
-`;
+`
