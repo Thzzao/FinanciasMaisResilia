@@ -1,5 +1,5 @@
 // import React from 'react'
-import styles from './LandingPage.module.css'
+import styles from '../LandingPage/landingPage.module.css'
 import Header from '../../components/views/LandingPage/Header/Header'
 import BannerDesafioFinanceiro from '../../components/views/LandingPage/BannerDesafioFinanceiro/BannerDesafioFinanceiro'
 import BannerBemVindo from '../../components/views/LandingPage/BannerBemVindo/BannerBemVindo'
