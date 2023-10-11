@@ -1,5 +1,3 @@
-// import React from 'react'
-
 import { PrimaryButton, SecondaryButton } from "./button.styles"
 
 const Button = ({ variant, texto, width, onClick }) => {
