@@ -1,8 +1,9 @@
 // import React from 'react'
 import styles from './LandingPage.module.css'
-import Header from '../../components/Header/Header'
-import BannerDesafioFinanceiro from '../../components/BannerDesafioFinanceiro/BannerDesafioFinanceiro'
-import BannerBemVindo from '../../components/BannerBemVIndo/BannerBemVindo'
+import Header from '../../components/views/LandingPage/Header/Header'
+import BannerDesafioFinanceiro from '../../components/views/LandingPage/BannerDesafioFinanceiro/BannerDesafioFinanceiro'
+import BannerBemVindo from '../../components/views/LandingPage/BannerBemVindo/BannerBemVindo'
+import Footer from '../../components/views/LandingPage/Footer/Footer'
 // import Logo from '../../components/common/Logo/Logo'
 
 
@@ -13,6 +14,7 @@ const LandingPage = () => {
             <Header />
             <BannerBemVindo />
             <BannerDesafioFinanceiro />
+            <Footer />
         </div>
     )
 }
