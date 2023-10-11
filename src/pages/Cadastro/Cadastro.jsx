@@ -4,7 +4,7 @@ import Button from "../../components/common/Button/Button"
 import cadastro from "/cadastro.svg"
 import { StylesContainer } from "./cadastro.styles"
 import { useState } from "react"
-import Textfield from "../../components/common/TextField/Textfield"
+import Textfield from "../../components/common/Textfield/Textfield"
 
 
 const Cadastro = () => {
