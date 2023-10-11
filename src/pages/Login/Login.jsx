@@ -16,7 +16,7 @@ const Login = () => {
             {/* <Link className={'link'} to='/dashboard'>Dashboard</Link> */}
             <div className="container">
                 <form className="formulario">
-                    <Logo variant='Default' />
+                    <Logo cor='azul' />
                     <label>Nome de usuário</label>
                     <input type="text" id="email" placeholder="email@email.com"></input>
                     <label>Senha</label>
