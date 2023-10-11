@@ -1,59 +1,98 @@
-// import React from 'react'
-
 import { Link, useNavigate } from "react-router-dom"
 import Logo from "../../components/common/Logo/Logo"
 import Button from "../../components/common/Button/Button"
 import cadastro from "/cadastro.svg"
 import { StylesContainer } from "./cadastro.styles"
+import { useState } from "react"
+import Textfield from "../../components/common/TextField/Textfield"
+
 
 const Cadastro = () => {
-    const navigate = useNavigate()
-    const handleClick = () => {
-        navigate('/')
-    }
-    return (
-        <div>
-            {/* <li><Link className={'link'} to='/dashboard'>Dashboard</Link></li> */}
-            <StylesContainer className="container">
-                <div className="imagem">
-                    <Logo variant='Light'></Logo>
-                    <img className="imagem" src={cadastro} alt='Vetor '></img>
-                </div>
-                <div className="formulario">
-                    <form>
-                        <h2>Cadastro</h2>
-                        <div className="inputNome">
-                            <div className="nome">
-                                <label>Nome</label>
-                                <input type="text" id="nome" placeholder="Maria"></input>
-                            </div>
-                            <div className="sobrenome">
-                                <label>Sobrenome</label>
-                                <input type="text" id="sobrenome" placeholder="Silva"></input>
-                            </div>
-                        </div>
-                        <div className="inputs">
-                            <label>Email</label>
-                            <input type="text" id="email" placeholder="maria.silva@email.com"></input>
-                        </div>
-                        <div className="inputs">
-                            <label>Senha</label>
-                            <input type="password" id="senha" placeholder="********"></input>
-                        </div>
-                        <div className="inputs">
-                            <label>Confirmação de senha</label>
-                            <input type="password" id="senha" placeholder="********"></input>
-                        </div>
-                    </form>
-                    <div className="login">
-                        <a>Ja tem uma conta? <Link className={'link'} to='/login'>Fazer login</Link></a>
-                    </div>
-                    <p>CheckBox</p>
-                    <Button texto='Cadastrar' variant='primary' onClick={handleClick} />
-                </div>
-            </StylesContainer>
-        </div>
-    )
-}
 
-export default Cadastro
+    const [nome, setNome] = useState('')
+    const [sobrenome, setSobrenome] = useState('')
+
+
+    const navigate = useNavigate()
+    const handleCadastro = () => {
+        console.log('nome:', nome, '\nsobrenome:', sobrenome)
+    }
+
+    return (
+        <StylesContainer>
+            <section>
+                <Logo fontSize={64} />
+
+                <picture>
+                    <img
+                        src={cadastro}
+                        alt="Vetor homem branco preenchendo um fomulario de satisfação"
+                    />
+                </picture>
+            </section>
+
+            <form action="">
+                <h2>Cadastro</h2>
+                <div>
+                    <Textfield
+                        nome="nome"
+                        label="Nome"
+                        type="text"
+                        required
+                        placeholder="Maria"
+                        value={nome}
+                        onChange={(e) => setNome(e)}
+
+                    />
+                    {/* <Textfield
+                        nome="sobrenome"
+                        label="Sobrenome"
+                        type="text"
+                        required
+                        placeholder="Silva"
+                    /> */}
+                    <input type="text" value={sobrenome} onChange={(evento) => setSobrenome(evento.target.value)} />
+                </div>
+                <Textfield
+                    nome="email"
+                    label="E-mail"
+                    type="email"
+                    required
+                    placeholder="mariasilva@gmail.com"
+
+                />
+                <Textfield
+                    nome="senha"
+                    label="Senha"
+                    type="password"
+                    required
+                    placeholder="●●●●●●●"
+
+                />
+                <Textfield
+                    nome="confirmaSenha"
+                    label="Confirmação de Senha"
+                    type="password"
+                    required
+                    placeholder="●●●●●●●"
+                />
+
+                <p>
+                    Ja tem conta tem conta?
+                    <Link to="/login" className="destaque">
+                        Faça login
+                    </Link>
+                </p>
+
+                <Button
+                    width="100%"
+                    variant='primary'
+                    texto="Cadastrar"
+                    onClick={handleCadastro}
+                />
+            </form>
+        </StylesContainer>
+    );
+};
+
+export default Cadastro;
