@@ -1,25 +1,42 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Logo from "../../components/common/Logo/Logo"
 import Button from "../../components/common/Button/Button"
-import cadastro from "/cadastro.svg"
-import { StylesContainer } from "./cadastro.styles"
+import cadastro from "../../../public/cadastro.svg"
+import { StyleContainerCadastro } from "./cadastro.styles"
 import { useState } from "react"
 import Textfield from "../../components/common/Textfield/Textfield"
-
+import { postUsuario } from "../../service/api"
 
 const Cadastro = () => {
 
     const [nome, setNome] = useState('')
     const [sobrenome, setSobrenome] = useState('')
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+    const [confirmaSenha, setConfirmaSenha] = useState('')
 
+    // const navigate = useNavigate()
 
-    const navigate = useNavigate()
-    const handleCadastro = () => {
-        console.log('nome:', nome, '\nsobrenome:', sobrenome)
+    const handleCadastro = async (e) => {
+        e.preventDefault()
+
+        const body = {
+            nome,
+            sobrenome,
+            email
+        }
+
+        if (senha === confirmaSenha) {
+            const resposta = await postUsuario(body, senha)
+            localStorage.setItem('id', resposta.data.id)
+            localStorage.setItem('nome', resposta.data.nome)
+            console.log(resposta)
+        } else {
+            console.log('As senhas precisam ser iguais')
+        }
     }
-
     return (
-        <StylesContainer>
+        <StyleContainerCadastro>
             <section>
                 <Logo fontSize={64} />
 
@@ -44,14 +61,15 @@ const Cadastro = () => {
                         onChange={(e) => setNome(e)}
 
                     />
-                    {/* <Textfield
+                    <Textfield
                         nome="sobrenome"
                         label="Sobrenome"
                         type="text"
                         required
                         placeholder="Silva"
-                    /> */}
-                    <input type="text" value={sobrenome} onChange={(evento) => setSobrenome(evento.target.value)} />
+                        value={sobrenome}
+                        onChange={(e) => setSobrenome(e)}
+                    />
                 </div>
                 <Textfield
                     nome="email"
@@ -59,7 +77,8 @@ const Cadastro = () => {
                     type="email"
                     required
                     placeholder="mariasilva@gmail.com"
-
+                    value={email}
+                    onChange={(e) => setEmail(e)}
                 />
                 <Textfield
                     nome="senha"
@@ -67,7 +86,8 @@ const Cadastro = () => {
                     type="password"
                     required
                     placeholder="●●●●●●●"
-
+                    value={senha}
+                    onChange={(e) => setSenha(e)}
                 />
                 <Textfield
                     nome="confirmaSenha"
@@ -75,12 +95,14 @@ const Cadastro = () => {
                     type="password"
                     required
                     placeholder="●●●●●●●"
+                    value={confirmaSenha}
+                    onChange={(e) => setConfirmaSenha(e)}
                 />
 
                 <p>
                     Ja tem conta tem conta?
                     <Link to="/login" className="destaque">
-                        Faça login
+                        Faça o login
                     </Link>
                 </p>
 
@@ -91,8 +113,8 @@ const Cadastro = () => {
                     onClick={handleCadastro}
                 />
             </form>
-        </StylesContainer>
-    );
-};
+        </StyleContainerCadastro>
+    )
+}
 
 export default Cadastro;
