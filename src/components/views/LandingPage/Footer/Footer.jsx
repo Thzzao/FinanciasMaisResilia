@@ -1,4 +1,4 @@
-
+import { StyleFooter, StyleItemlist, StyleListFooter } from "./Footer.styles";
 import {
     EnvelopeSimple,
     FacebookLogo,
@@ -7,7 +7,6 @@ import {
     PhoneCall,
 } from "@phosphor-icons/react";
 import { temaGlobal } from "../../../../styles/theme";
-import { StyleFooter, StyleItemlist, StyleListFooter } from "./Footer.styles";
 
 const Footer = () => {
     return (
@@ -52,7 +51,7 @@ const Footer = () => {
                 </section>
             </div>
         </StyleFooter>
-    );
-};
+    )
+}
 
 export default Footer; 
