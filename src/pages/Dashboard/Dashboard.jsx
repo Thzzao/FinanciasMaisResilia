@@ -10,7 +10,6 @@ const Dashboard = () => {
         valor: 10000,
         tipo: 'saida'
     }
-
     return (
         <div>
             <Layout >
@@ -22,9 +21,7 @@ const Dashboard = () => {
                     tipo={transacao.tipo}
                 />
             </Layout>
-
         </div>
-
     )
 }
 
