@@ -1,11 +1,11 @@
+/* eslint-disable react/prop-types */
 import { X } from "@phosphor-icons/react";
-// import React from "react";
 import styled from "styled-components";
 import { temaGlobal } from "../../../styles/theme";
 
-const Modal = ({ open, title, onClose, children }) => {
+const Modal = ({ open, title, fechaModal, children }) => {
     const handleClose = (e) => {
-        e.target.id === "modal" && onClose();
+        e.target.id === "modal" && fechaModal();
     };
     return (
         <>
@@ -16,7 +16,7 @@ const Modal = ({ open, title, onClose, children }) => {
                             <h2>{title}</h2>
                             <X
                                 color={temaGlobal.blue500}
-                                onClick={onClose}
+                                onClick={fechaModal}
                                 cursor="pointer"
                                 size={32}
                             />
@@ -54,17 +54,16 @@ const StylesContentModal = styled.div`
     gap: 18px;
     flex-shrink: 0;
     border-radius: 16px;
-    background: ${(p) => p.temaGlobal.white200};
+    background: ${(p) => p.theme.white200};
     box-shadow: 4px 7px 21px 0px #263238, -4px -7px 21px 0px #263238;
 
     > .header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    > h2 {
-        color: ${(p) => p.temaGlobal.blue500};
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        > h2 {
+            color: ${(p) => p.theme.blue500};
+        }
     }
-    }
-`;
+`
