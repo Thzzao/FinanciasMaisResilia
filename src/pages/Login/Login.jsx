@@ -1,34 +1,78 @@
-// import React from 'react'
-
 import { Link, useNavigate } from "react-router-dom"
 import Logo from "../../components/common/Logo/Logo"
 import Button from "../../components/common/Button/Button"
 import login1 from "/login 1.svg"
-import { StylesBody } from "./login.styles"
+import { StyleContainerLogin } from "./login.styles"
+import { useState } from "react"
+import Textfield from "../../components/common/Textfield/Textfield"
+import { loginUsuario } from "../../service/api"
 
 const Login = () => {
     const navigate = useNavigate()
-    const handleClick = () => {
-        navigate('/')
+
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+    const [error, setError] = useState()
+
+    async function handleLogin(e) {
+        e.preventDefault()
+        const resposta = await loginUsuario(email, senha)
+
+        if (resposta.success) {
+            navigate('/dashboard')
+            localStorage.setItem('id', resposta.data.id)
+            localStorage.setItem('nome', resposta.data.nome)
+        } else {
+            setError(resposta.message)
+        }
+        // console.log(resposta)
     }
     return (
-        <StylesBody className="body">
-            {/* <Link className={'link'} to='/dashboard'>Dashboard</Link> */}
-            <div className="container">
-                <form className="formulario">
-                    <Logo cor='azul' />
-                    <label>Nome de usuário</label>
-                    <input type="text" id="email" placeholder="email@email.com"></input>
-                    <label>Senha</label>
-                    <input type="password" id="senha" placeholder="*********"></input>
-                    <a>Ainda não tem conta?<Link className={'link'} to='/cadastro'>Cadastre-se</Link></a>
-                    <Button texto='Entrar' variant='primary' onClick={handleClick} />
+        <StyleContainerLogin>
+            <div className="content">
+                <form>
+                    <Logo cor="azul" />
+                    <Textfield
+                        label="Email"
+                        name="email"
+                        placeholder="email@email.com"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e)}
+                    />
+                    <Textfield
+                        label="Senha"
+                        name="senha"
+                        placeholder="●●●●●●●"
+                        type="password"
+                        required
+                        value={senha}
+                        onChange={(e) => setSenha(e)}
+                    />
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    <p>
+                        Ainda não tem conta?{" "}
+                        <Link to="/cadastro" className="destaque">
+                            Cadastre-se
+                        </Link>
+                    </p>
+                    <Button
+                        texto="Entrar"
+                        width="100%"
+                        variant='primary'
+                        onClick={handleLogin}
+                    />
                 </form>
-                <div className="imagem">
-                    <img src={login1} alt='Vetor de um homem concluíndo tarefas com um celular atrás'></img>
-                </div>
+
+                <picture>
+                    <img
+                        src={login1}
+                        alt="Imagem de um usuario preenchendo um formulario de login"
+                    />
+                </picture>
             </div>
-        </StylesBody>
+        </StyleContainerLogin>
     )
 }
 
