@@ -1,4 +1,4 @@
-// import React from 'react'
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
 import { StylesLayout } from './Layout.styles'
 import Logo from '../../common/Logo/Logo'
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
             </aside>
             <div>
                 <header className='header-layout'>
-                    <p>Olá, usuário</p>
+                    <p>Olá, Admin</p>
                     <Link>Sair</Link>
                 </header>
                 <main>
