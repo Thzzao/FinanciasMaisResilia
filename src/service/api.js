@@ -4,14 +4,49 @@ const api = axios.create({
     baseURL: 'http://localhost:3001/',
 })
 
-export const getCategorias = async (endpoint) => {
-    const resposta = await api.get(endpoint)
+export const getCategorias = async () => {
+    const resposta = await api.get('/categorias')
     return resposta.data
 }
 
 export const getTransacoes = async (idUsuario, tipo) => {
     const resposta = await api.get(`/usuario/${idUsuario}/transacoes/${tipo}`)
     return resposta.data
+}
+
+export const postTransacao = async (body, idUsuario) => {
+    try {
+        const resposta = await api.post(`/usuario/${idUsuario}/novatransacao`, body)
+        return resposta.data
+    } catch (error) {
+        if (error.response) {
+            return {
+                message: error.response.data.message,
+                success: error.response.data.success,
+            }
+        } else {
+            return {
+                message: 'Erro inesperado'
+            }
+        }
+    }
+}
+export const putTransacao = async (idTransacao, idUsuario, body) => {
+    try {
+        const resposta = await api.put(`/usuarios/${idUsuario}/editar/${idTransacao}`, body)
+        return resposta.data
+    } catch (error) {
+        if (error.response) {
+            return {
+                message: error.response.data.message,
+                success: error.response.data.success
+            }
+        } else {
+            return {
+                message: 'Erro inesperado'
+            }
+        }
+    }
 }
 
 export const postUsuario = async (body, senha) => {
@@ -43,7 +78,7 @@ export const loginUsuario = async (email, senha) => {
             }
         } else {
             return {
-                message: 'erro inesperado',
+                message: 'Erro inesperado',
             }
         }
     }
