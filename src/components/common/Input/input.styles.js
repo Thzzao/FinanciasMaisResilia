@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const StyleInput = styled.input`
     border-radius: 8px;
     background: ${(props) => props.theme.white50};
