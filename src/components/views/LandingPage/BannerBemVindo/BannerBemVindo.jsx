@@ -1,6 +1,7 @@
 // import React from "react";
 import banner1 from "/LP-banner1 1.svg";
-import { StyleContainer } from "../BannerBemVindo/BannerBemVindo.styles";
+import { StyleContainer } from "./bannerBemVindo.styles";
+
 
 const BannerBemVindo = () => {
     return (
