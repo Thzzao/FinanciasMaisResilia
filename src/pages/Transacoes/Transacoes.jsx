@@ -9,7 +9,7 @@ import { StylesTransacoes } from './transacoes.styles'
 import { useEffect, useState } from 'react'
 import Modal from "../../components/common/Modal/Modal"
 // import Textfield from '../../components/common/Textfield/Textfield'
-import Input from '../../components/common/Input/Input'
+// import Input from '../../components/common/Input/Input'
 import Notificacao from '../../components/common/Notificação/Notificacao'
 
 const Transacoes = () => {
@@ -122,7 +122,7 @@ const Transacoes = () => {
                         <h2>{params.tipo.toLocaleUpperCase()}</h2>
                         <Button
                             onClick={() => setModalAberto(true)}
-                            texto={"Adicionar Entrada"}
+                            texto={"Adicionar transação"}
                             variant='primary' />
                     </section>
 
