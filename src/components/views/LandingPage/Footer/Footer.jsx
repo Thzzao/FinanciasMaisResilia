@@ -7,6 +7,7 @@ import {
     PhoneCall,
 } from "@phosphor-icons/react";
 import { temaGlobal } from "../../../../styles/theme";
+import Logo from "../../../common/Logo/Logo";
 
 const Footer = () => {
     return (
@@ -16,6 +17,7 @@ const Footer = () => {
                     <StyleListFooter>
                         <StyleItemlist>
                         </StyleItemlist>
+                        <Logo fontSize={60} />
                         <StyleItemlist className="icon">
                             <EnvelopeSimple color={temaGlobal.white50} size={20} weight="fill" />
                             financasmais@gmail.com
