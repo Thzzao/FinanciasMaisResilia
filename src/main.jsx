@@ -5,9 +5,12 @@ import ReactDOM from 'react-dom/client'
 // import { ThemeProvider } from 'styled-components'
 // import { temaGlobal } from './styles/theme'
 import Rotas from './Rotas'
+// import TransacoesProvider from './core/contexto/useTransacoes'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
+        {/* <TransacoesProvider> */}
         <Rotas />
+        {/* </TransacoesProvider> */}
     </React.StrictMode>,
 )

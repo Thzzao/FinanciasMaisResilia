@@ -2,8 +2,13 @@
 import { Link } from 'react-router-dom'
 import { StylesLayout } from './Layout.styles'
 import Logo from '../../common/Logo/Logo'
+import { useContext } from 'react'
+// import { TransacoesContext } from '../../../core/contexto/useTransacoes'
 
 const Layout = ({ children }) => {
+
+    // const { nome } = useContext(TransacoesContext)
+
     return (
         <StylesLayout>
             <aside className='barra-lateral'>
@@ -16,6 +21,7 @@ const Layout = ({ children }) => {
             </aside>
             <div>
                 <header className='header-layout'>
+                    {/* <p>Olá, {nome}</p> */}
                     <p>Olá, Admin</p>
                     <Link>Sair</Link>
                 </header>
