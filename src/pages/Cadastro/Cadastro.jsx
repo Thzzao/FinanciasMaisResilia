@@ -32,6 +32,7 @@ const Cadastro = () => {
             localStorage.setItem('nome', resposta.data.nome)
             console.log(resposta)
         } else {
+            // Retornar na tela 
             console.log('As senhas precisam ser iguais')
         }
     }
@@ -98,6 +99,8 @@ const Cadastro = () => {
                     value={confirmaSenha}
                     onChange={(e) => setConfirmaSenha(e)}
                 />
+
+                {/* Colocar os checkbox */}
 
                 <p>
                     Ja tem conta tem conta?
