@@ -2,7 +2,7 @@
 import { ArrowLineUp, ArrowLineDown } from '@phosphor-icons/react'
 import styled, { useTheme } from 'styled-components'
 
-const Transacao = ({ id, valor, categoria, descricao, data, tipo, handleEditarTransacao }) => {
+const Transacao = ({ id, valor, categoria, descricao, data, tipo, handleEditarTransacao, handleAbrirModalDeletar }) => {
 
     const theme = useTheme()
 
@@ -17,6 +17,7 @@ const Transacao = ({ id, valor, categoria, descricao, data, tipo, handleEditarTr
             <button onClick={() => {
                 handleEditarTransacao({ id, valor, categoria, descricao, data, tipo })
             }}>Editar</button>
+            <button onClick={() => handleAbrirModalDeletar(id)}>Excluir</button>
         </StylesTransacao>
     )
 }

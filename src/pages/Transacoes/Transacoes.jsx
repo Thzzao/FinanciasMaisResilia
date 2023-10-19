@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import Transacao from '../../components/views/Dashboard/Transacao/Transacao'
 import Layout from '../../components/shared/Layout/Layout'
 // import { dataTransacoes } from '../../core/data'
-import { getCategorias, getTransacoes, postTransacao, putTransacao } from '../../service/api'
+import { deleteTransacao, getCategorias, getTransacoes, postTransacao, putTransacao } from '../../service/api'
 import Button from '../../components/common/Button/Button'
 import { StylesTransacoes } from './transacoes.styles'
 import { useEffect, useState } from 'react'
@@ -32,6 +32,7 @@ const Transacoes = () => {
     })
 
     const [emEdicao, setEmEdicao] = useState(false)
+    const [modalDeletar, setModalDeletar] = useState(false)
 
     function handleEditarTransacao(transacao) {
         setEmEdicao(true)
@@ -58,12 +59,13 @@ const Transacoes = () => {
 
         setInfosNotificacao([{
             texto: resposta.success ? 'Transação editada com sucesso' : 'Erro ao editar transação',
-            tipo: resposta.success ? 'Sucesso' : 'Falha'
+            tipo: resposta.success ? 'sucesso' : 'falha'
         }])
         setAbrirNotificacao(true)
         handleBuscarTransacoes()
         setEmEdicao(false)
     }
+
     async function handleBuscarTransacoes() {
         const resposta = await getTransacoes('a57501f9407c2174825bb862860ec23a', params.tipo)
         setListaTransacoes(resposta.data)
@@ -86,11 +88,29 @@ const Transacoes = () => {
             handleBuscarTransacoes()
         }
         setInfosNotificacao({
-            tipo: resposta.success ? 'Sucesso' : 'Falha',
+            tipo: resposta.success ? 'sucesso' : 'falha',
             texto: resposta.success ? 'Transação adicionada com sucesso' : 'Falha ao adicionar transação'
         })
         setAbrirNotificacao(true)
         setModalAberto(false)
+    }
+
+    async function handleDeletarTransacao() {
+        const resposta = await deleteTransacao(idTransacao, 'a57501f9407c2174825bb862860ec23a')
+        setModalDeletar(false)
+
+        handleBuscarTransacoes()
+
+        setInfosNotificacao({
+            texto: resposta.success ? 'Transação excluída com sucesso' : 'Falha ao excluir transação',
+            tipo: resposta.success ? 'sucesso' : 'falha'
+        })
+        setAbrirNotificacao(true)
+    }
+
+    function handleAbrirModalDeletar(idTransacao) {
+        setIdTransacao(idTransacao)
+        setModalDeletar(true)
     }
 
     useEffect(() => {
@@ -104,16 +124,6 @@ const Transacoes = () => {
 
     }, [modalAberto])
 
-    // useEffect(() => {
-    //     handleBuscarTransacoes()
-    // }, [])
-    // useEffect(() => {
-    //     if (modalAberto) {
-    //         handleBuscarCategorias()
-    //     }
-    // }, [modalAberto])
-
-
     return (
         <>
             <Layout >
@@ -125,7 +135,6 @@ const Transacoes = () => {
                             texto={"Adicionar transação"}
                             variant='primary' />
                     </section>
-
                     <ul>
                         {listaTransacoes.map((transacao) => {
                             return (
@@ -137,6 +146,7 @@ const Transacoes = () => {
                                     data={transacao.data}
                                     tipo={transacao.tipo}
                                     handleEditarTransacao={handleEditarTransacao}
+                                    handleAbrirModalDeletar={handleAbrirModalDeletar}
                                 />
                             )
                         })}
@@ -144,6 +154,7 @@ const Transacoes = () => {
                 </StylesTransacoes>
             </Layout>
 
+            {/* Criar e editar transação */}
             <Modal title={params.tipo} open={modalAberto} fechaModal={() => setModalAberto(false)}>
                 <div>
                     {/* <Textfield nome="valor" label="Valor" /> */}
@@ -167,6 +178,13 @@ const Transacoes = () => {
                     <button onClick={emEdicao ? handlePutTransacao : handleSalvarTransacao}>{emEdicao ? 'Salvar alterações' : 'Adicionar'}</button>
                 </div>
             </Modal>
+
+            {/* Para excluir transação */}
+            <Modal open={modalDeletar} title={'Excluir'} fechaModal={() => { setModalDeletar(false) }}>
+                <h3>Você deseja excluir essa transação?</h3>
+                <Button texto={'Sim'} variant={'primary'} onClick={() => { handleDeletarTransacao() }} />
+            </Modal>
+
             {
                 abrirNotificacao &&
                 <Notificacao

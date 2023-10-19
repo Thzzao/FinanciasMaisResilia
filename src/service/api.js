@@ -31,6 +31,7 @@ export const postTransacao = async (body, idUsuario) => {
         }
     }
 }
+
 export const putTransacao = async (idTransacao, idUsuario, body) => {
     try {
         const resposta = await api.put(`/usuarios/${idUsuario}/editar/${idTransacao}`, body)
@@ -44,6 +45,24 @@ export const putTransacao = async (idTransacao, idUsuario, body) => {
         } else {
             return {
                 message: 'Erro inesperado'
+            }
+        }
+    }
+}
+
+export const deleteTransacao = async (idUsuario, idTransacao) => {
+    try {
+        const resposta = await api.delete(`/usuario/${idUsuario}/deletar/${idTransacao}`)
+        return resposta.data
+    } catch (error) {
+        if (error.response) {
+            return {
+                message: error.response.data.message,
+                success: error.response.data.success,
+            }
+        } else {
+            return {
+                message: 'Erro inesperado',
             }
         }
     }
