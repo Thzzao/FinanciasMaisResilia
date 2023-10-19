@@ -49,8 +49,6 @@ input {
     padding: 24px 0;
 }
 
-
-
 h2{  
     font-family: 'Montserrat';
     font-size: 38px;
