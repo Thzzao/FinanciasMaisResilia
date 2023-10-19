@@ -1,5 +1,5 @@
 import { StyleContainer } from "./BannerDepoimentos.styles";
-import banner3 from "/lp-banner3.svg";
+import banner3 from "/lp-banner3 1.svg";
 
 const BannerDepoimentos = () => {
     return (
@@ -16,8 +16,8 @@ const BannerDepoimentos = () => {
                             suas finanças e conquistaram sonhos que pareciam distantes.
                         </p>
                     </section>
-
-                    <div>card</div>
+                    {/* FINALIZAR */}
+                    <div>CARDDDDD</div>
                 </div>
             </div>
         </StyleContainer>
