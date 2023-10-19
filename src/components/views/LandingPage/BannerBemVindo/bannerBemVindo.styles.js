@@ -1,54 +1,23 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-export const StylesBannerBemVindo = styled.div`
-    display: flex;
+export const StyleContainer = styled.section`
     width: 100%;
-    padding: 0px 100px;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-image: url("public/background-Section-1.svg");
-    background-position: bottom;
+    height: fit-content;
+    background-image: url('/background-Section-1.svg');
     background-repeat: no-repeat;
-
-.texto {
+    background-position: bottom;
+    background-size: contain;
     display: flex;
-    height: 465px;
-    padding: 67px 0px;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-}
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 90px;
 
-.titulo {
-    color: #1D3557;
-    font-family: Montserrat;
-    font-size: 38px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-.paragrafo1 {
-    color: var#263238;
-    font-family: Roboto;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.paragrafo2 {
-    color: #263238;
-    font-family: Roboto;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
-.imagem {
-    width: 500px;
-    height: 500px;
-    flex-shrink: 0;
-}
+    .textos {
+        width: 50%;
+        max-width: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
 `
