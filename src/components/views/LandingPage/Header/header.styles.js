@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const StylesHeader = styled.header`
     display: flex;
-    width: 1212px;
-    padding: 12px 0px;
+    width: 100%;
+    padding: 12px 12px;
     justify-content: space-between;
     align-items: center;
 
@@ -40,4 +40,8 @@ export const StylesHeader = styled.header`
     font-weight: 400;
     line-height: normal;
 }
+link:hover {
+    opacity: 0.7;
+}
+
 `
