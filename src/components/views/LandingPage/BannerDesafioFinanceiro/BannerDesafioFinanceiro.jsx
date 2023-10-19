@@ -27,9 +27,8 @@ const BannerDesafioFinanceiro = () => {
                     deseja.
                 </p>
             </div>
-        </div>
         </StyledContainer >
-    );
-};
+    )
+}
 
 export default BannerDesafioFinanceiro;
